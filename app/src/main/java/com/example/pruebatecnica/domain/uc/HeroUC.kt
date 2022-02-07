@@ -6,7 +6,5 @@ import kotlinx.coroutines.withContext
 
 class HeroUC(private val heroRepository: HeroRepository) {
 
-    fun getDataUseCaso() = "hola uc"
-
     suspend fun getDataHero() = withContext(Dispatchers.IO) { heroRepository.getCounters() }
 }

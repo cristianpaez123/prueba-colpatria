@@ -1,6 +1,7 @@
 package com.example.pruebatecnica.presentation.viewmodel
 
-import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pruebatecnica.data.models.HeroResponse
@@ -11,30 +12,25 @@ class HeroViewModel(
     private val heroUC: HeroUC
 ) : ViewModel() {
 
-//    private val job = Job()
-//    private val uiScope = CoroutineScope(coroutineContextProvider.Main + job)
+    private val dataHeroState: MutableLiveData<GetDataHeroState> = MutableLiveData()
 
-    val myString: String = "null"
-    val myStringNull: String? = null
-
-    fun getData() = "hola viewmodel"
-    fun getDtaUseCaso() = heroUC.getDataUseCaso()
+    fun getDataHeroState(): LiveData<GetDataHeroState> = dataHeroState
 
     fun getDataHero() {
-        GetDataHeroState.Loading
+        dataHeroState.postValue(GetDataHeroState.Loading)
         viewModelScope.launch {
-            val result = try {
-                heroUC.getDataHero()
+            try {
+                val dataHero = heroUC.getDataHero()
+                dataHeroState.postValue(GetDataHeroState.DataLoaded(dataHero))
             } catch (e: Exception) {
-                Log.i("mmp", e.message ?: "No message")
+                dataHeroState.postValue(GetDataHeroState.Error("error"))
             }
-            val x = ""
         }
     }
 
     sealed class GetDataHeroState() {
         object Loading : GetDataHeroState()
-        data class DataLoaded(val heroResponse: HeroResponse)
-        data class Error(val message: String)
+        data class DataLoaded(val heroResponse: HeroResponse) : GetDataHeroState()
+        data class Error(val message: String) : GetDataHeroState()
     }
 }
