@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pruebatecnica.data.data.Results
+import com.example.pruebatecnica.data.models.Results
 import com.example.pruebatecnica.domain.uc.HeroUC
 import kotlinx.coroutines.launch
 

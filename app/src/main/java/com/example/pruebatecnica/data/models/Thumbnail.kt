@@ -1,4 +1,4 @@
-package com.example.pruebatecnica.data.data
+package com.example.pruebatecnica.data.models
 
 data class Thumbnail(
     val path: String,
