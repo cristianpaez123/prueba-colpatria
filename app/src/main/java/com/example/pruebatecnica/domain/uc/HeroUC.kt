@@ -6,5 +6,5 @@ import kotlinx.coroutines.withContext
 
 class HeroUC(private val heroRepository: HeroRepository) {
 
-    suspend fun getDataHero() = withContext(Dispatchers.IO) { heroRepository.getCounters() }
+    suspend fun getDataHero() = withContext(Dispatchers.IO) { heroRepository.getHeros() }
 }
