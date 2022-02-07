@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pruebatecnica.R
-import com.example.pruebatecnica.data.models.Results
+import com.example.pruebatecnica.data.data.Results
 import com.example.pruebatecnica.tools.urlImage
 import com.squareup.picasso.Picasso
 

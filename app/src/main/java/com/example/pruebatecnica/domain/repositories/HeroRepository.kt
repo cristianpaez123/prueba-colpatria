@@ -1,6 +1,6 @@
 package com.example.pruebatecnica.domain.repositories
 
-import com.example.pruebatecnica.data.models.Results
+import com.example.pruebatecnica.data.data.Results
 
 interface HeroRepository {
 

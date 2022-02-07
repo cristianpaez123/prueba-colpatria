@@ -1,6 +1,6 @@
 package com.example.pruebatecnica.data.networkEndPoints
 
-import com.example.pruebatecnica.data.models.HeroResponse
+import com.example.pruebatecnica.data.data.HeroResponse
 import retrofit2.http.GET
 
 interface HeroApi {
